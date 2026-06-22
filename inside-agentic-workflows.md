@@ -1,6 +1,6 @@
 ---
 title: Inside Agentic Workflows
-description: A field guide for engineers who would rather understand the why than memorize the how.
+description: A field guide for engineers who would rather understand the why than memorize the how
 date: 2026-06-06
 author: Sam Becker
 category: Agents
