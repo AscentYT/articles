@@ -1,6 +1,6 @@
 ---
 title: Inside Inference Optimization
-description: A field guide for engineers who would rather understand the why than memorize the how.
+description: A field guide for engineers who would rather understand why than memorize how.
 date: 2026-05-25
 author: Yuki Tanaka
 category: Serving
