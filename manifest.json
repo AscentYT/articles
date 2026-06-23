@@ -11,50 +11,7 @@
       "transformers",
       "deep-dive"
     ],
-    "hue": 220,
-    "featured": true,
-    "quiz": [
-      {
-        "q": "What does retrieval-augmented generation primarily reduce?",
-        "options": [
-          "Training cost",
-          "Hallucination on knowledge-heavy queries",
-          "GPU memory",
-          "Tokenizer size"
-        ],
-        "answer": 1
-      },
-      {
-        "q": "Quantizing weights to int8 mainly trades…",
-        "options": [
-          "Accuracy for capacity",
-          "Memory and latency for a small accuracy hit",
-          "Data for compute",
-          "Depth for width"
-        ],
-        "answer": 1
-      },
-      {
-        "q": "A mixture-of-experts layer grows total parameters while keeping what roughly constant?",
-        "options": [
-          "Training data",
-          "Per-token compute",
-          "Context length",
-          "Vocabulary size"
-        ],
-        "answer": 1
-      },
-      {
-        "q": "The √dₖ scaling inside attention exists to…",
-        "options": [
-          "Speed up matrix multiplies",
-          "Stabilize the softmax gradients",
-          "Reduce parameter count",
-          "Add a nonlinearity"
-        ],
-        "answer": 1
-      }
-    ]
+    "featured": true
   },
   {
     "slug": "practical-guide-diffusion-models",
@@ -67,7 +24,6 @@
       "vision",
       "generative"
     ],
-    "hue": 265,
     "featured": false
   },
   {
@@ -82,7 +38,6 @@
       "safety",
       "training"
     ],
-    "hue": 210,
     "featured": false
   },
   {
@@ -97,7 +52,6 @@
       "retrieval",
       "nlp"
     ],
-    "hue": 250,
     "featured": false
   },
   {
@@ -112,7 +66,6 @@
       "tools",
       "infra"
     ],
-    "hue": 230,
     "featured": false
   },
   {
@@ -127,7 +80,6 @@
       "infra",
       "eval"
     ],
-    "hue": 200,
     "featured": false
   },
   {
@@ -142,7 +94,6 @@
       "nlp",
       "retrieval"
     ],
-    "hue": 245,
     "featured": false
   },
   {
@@ -156,7 +107,6 @@
       "eval",
       "serving"
     ],
-    "hue": 215,
     "featured": false
   },
   {
@@ -170,7 +120,6 @@
       "serving",
       "infra"
     ],
-    "hue": 235,
     "featured": false
   },
   {
@@ -185,7 +134,6 @@
       "moe",
       "training"
     ],
-    "hue": 255,
     "featured": false
   }
 ]
