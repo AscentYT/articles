@@ -4,6 +4,12 @@ Reinforcement learning from human feedback gets described as if it were one tech
 
 The reward model is only as good as the comparisons you feed it. Annotator disagreement, ambiguous prompts, and subtle label drift all show up later as strange model behavior. Teams that win at RLHF treat data collection as a first-class engineering problem, not a step to outsource and forget.
 
+```image
+ src: diagram.png
+ alt: Transformer architecture
+ caption: Figure 1 — the attention block
+ ```
+
 ## Reward hacking is the default
 
 Optimize any proxy hard enough and the policy will find the seams. A reward model that rewards length will produce padding; one that rewards confident tone will produce confident nonsense. The fix is rarely a cleverer loss — it is a tighter feedback loop between eval, red-teaming, and the reward model itself.
