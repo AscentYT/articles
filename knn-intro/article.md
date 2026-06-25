@@ -1,10 +1,22 @@
 # Understanding the K-Nearest Neighbors (KNN) Algorithm
 
-> This article is a beginner-friendly introduction to KNN. No prior machine learning experience is required — just a basic comfort with numbers and curiosity about how AI works.
+> This article is a beginner-friendly introduction to KNN. No prior machine learning experience is required, just a basic comfort with numbers and curiosity about how AI works.
+
+```video
+src: https://www.youtube.com/watch?v=nf-8ed80cPY&t=2s
+caption: A visual walkthrough of how the KNN algorithm classifies data points
+```
 
 Machine learning algorithms allow computers to make decisions by finding patterns in data. One of the simplest and most intuitive algorithms used for this purpose is **K-Nearest Neighbors (KNN)**.
 
-KNN is a supervised machine learning algorithm used for both classification and regression tasks. In classification problems, its goal is to determine which category a new data point belongs to based on examples it has seen before.
+KNN is a
+
+```vocab
+term: Supervised Machine Learning Algorithm
+definition: A type of algorithm that learns from labeled training data, where each example includes both an input and the correct answer. The model uses these examples to make predictions on new, unseen data.
+```
+
+used for both classification and regression tasks. In classification problems, its goal is to determine which category a new data point belongs to based on examples it has seen before.
 
 Despite its simplicity, KNN demonstrates many of the fundamental ideas behind machine learning: representing data with features, measuring similarity, and making predictions from previous observations.
 
@@ -12,21 +24,25 @@ Despite its simplicity, KNN demonstrates many of the fundamental ideas behind ma
 
 Before a machine learning model can make predictions, data must be represented numerically.
 
-Each piece of data is described using one or more **features**, which are measurable characteristics of an observation. For example, if we were building a model to classify animals, features might include weight, height, tail length, ear size, or any other relevant measurement.
+Each piece of data is described using one or more
 
 ```vocab
 term: Feature
 definition: A measurable property or characteristic of the data used as input to a machine learning model. For example, the height and weight of an animal are both features.
 ```
 
+which are measurable characteristics of an observation. For example, if we were building a model to classify animals, features might include weight, height, tail length, or ear size.
+
 Each observation can then be represented as a point in a mathematical space. A dataset containing many observations forms a collection of points, where each point corresponds to a known example.
 
-Because these examples already have labels, they become the **training data** that KNN uses to make future predictions.
+Because these examples already have labels, they become the
 
 ```vocab
 term: Training Data
 definition: A labeled dataset used to teach a machine learning model. Each example includes both the input features and the correct output label.
 ```
+
+that KNN uses to make future predictions.
 
 ```quickcheck
 q: What is a "feature" in a machine learning dataset?
@@ -36,7 +52,7 @@ options:
   - The number of neighbors considered by KNN
   - A type of distance metric
 answer: 0
-explanation: Features are the measurable properties of each observation — the inputs a model uses to make predictions.
+explanation: Features are the measurable properties of each observation, the inputs a model uses to make predictions.
 ```
 
 ## The Core Idea Behind KNN
@@ -45,7 +61,7 @@ The central assumption of KNN is simple:
 
 > Similar data points are likely to belong to the same category.
 
-When a new, unlabeled observation is introduced, the algorithm examines the examples that are most similar to it. These nearby examples are known as its **nearest neighbors**.
+When a new, unlabeled observation is introduced, the algorithm examines the examples that are most similar to it. These nearby examples are known as its
 
 ```vocab
 term: Nearest Neighbors
@@ -60,17 +76,15 @@ This voting process forms the basis of KNN classification.
 
 ## Understanding the Value of K
 
-The parameter **K** determines how many neighbors are considered when making a prediction.
-
-Choosing an appropriate value for K is important because it directly affects the behavior of the model.
+The parameter **K** determines how many neighbors are considered when making a prediction. Choosing an appropriate value for K is important because it directly affects the behavior of the model.
 
 ### Small Values of K
 
-When K is very small, such as K = 1, predictions depend heavily on the closest example. This can make the model highly sensitive to noise or unusual data points, often leading to **overfitting**.
+When K is very small, such as K = 1, predictions depend heavily on the closest example. This can make the model highly sensitive to noise or unusual data points, often leading to
 
 ```vocab
 term: Overfitting
-definition: When a model learns the training data too precisely — including its noise — and performs poorly on new, unseen data.
+definition: When a model learns the training data too precisely, including its noise, and performs poorly on new, unseen data.
 ```
 
 ### Large Values of K
@@ -92,9 +106,7 @@ explanation: With K = 1, a single unusual or mislabeled neighbor can determine t
 
 ## Measuring Similarity
 
-To determine which neighbors are closest, KNN must calculate the distance between data points.
-
-The most common distance metric is **Euclidean distance**, which measures the straight-line distance between two points in space.
+To determine which neighbors are closest, KNN must calculate the distance between data points. The most common distance metric is
 
 ```vocab
 term: Euclidean Distance
@@ -102,15 +114,6 @@ definition: The straight-line distance between two points in space, calculated a
 ```
 
 The smaller the distance, the more similar the points are considered to be. Other distance metrics, such as Manhattan distance and Minkowski distance, can also be used depending on the problem.
-
-## See It in Action
-
-The video below walks through how KNN works visually — a great complement to what you've read so far.
-
-```video
-src: https://www.youtube.com/watch?v=nf-8ed80cPY&t=2s
-caption: A visual walkthrough of how the KNN algorithm classifies data points
-```
 
 ## Working in Higher Dimensions
 
@@ -134,7 +137,7 @@ Whether a dataset contains three features, ten features, or hundreds of features
 
 **Limitations:**
 
-- Predictions can be slow on large datasets — every new point must be compared to all training examples
+- Predictions can be slow on large datasets, since every new point must be compared to all training examples
 - Sensitive to irrelevant features and differences in feature scale
 - Performance depends heavily on choosing the right K
 
@@ -153,4 +156,4 @@ explanation: If one feature has much larger values than another, it will dominat
 
 K-Nearest Neighbors is one of the most intuitive machine learning algorithms. Rather than learning a complex mathematical model, it makes predictions by comparing new observations to examples it has already seen.
 
-Although more advanced algorithms exist, KNN provides an excellent foundation for the fundamental concepts of machine learning — feature representation, similarity measurement, classification, and model evaluation. Understanding KNN lays the groundwork for exploring more sophisticated techniques used throughout modern AI.
+Although more advanced algorithms exist, KNN provides an excellent foundation for the fundamental concepts of machine learning: feature representation, similarity measurement, classification, and model evaluation. Understanding KNN lays the groundwork for exploring more sophisticated techniques used throughout modern AI.
