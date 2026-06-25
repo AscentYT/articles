@@ -13,7 +13,7 @@ PPO, which stands for :vocab[Proximal Policy Optimization]{definition="A reinfor
 
 Before getting into PPO itself, it helps to understand the core pieces of any reinforcement learning problem.
 
-An :vocab[agent]{definition="The learner or decision-maker in a reinforcement learning system. The agent observes the world, takes actions, and learns from feedback."} is the thing doing the learning. It exists inside an :vocab[environment]{definition="The world the agent operates in. The environment responds to the agent's actions and gives back new information and rewards."}, which is everything around it that it can in![alt text](image.png)teract with.
+An :vocab[agent]{definition="The learner or decision-maker in a reinforcement learning system. The agent observes the world, takes actions, and learns from feedback."} is the thing doing the learning. It exists inside an :vocab[environment]{definition="The world the agent operates in. The environment responds to the agent's actions and gives back new information and rewards."}, which is everything around it that it can interact with.
 
 At any given moment, the agent observes the current :vocab[state]{definition="A snapshot of the situation the agent finds itself in. For example, its position, what is nearby, and how much health it has."} of the environment. Based on that state, it chooses an action. The environment then responds with a new state and a :vocab[reward]{definition="A numerical signal that tells the agent whether its last action was good or bad. Positive rewards encourage a behavior, negative rewards discourage it."}.
 
@@ -88,6 +88,7 @@ A well-trained agent should mostly do things it knows work well. But if it only 
 This tension is called the :vocab[exploration vs exploitation tradeoff]{definition="The balance between trying new actions to discover better strategies (exploration) and sticking with actions that are already known to work (exploitation)."}. Too much exploitation and the agent gets stuck. Too much exploration and it never settles on anything reliable.
 
 PPO handles this by adding an :vocab[entropy bonus]{definition="A small reward added during training to encourage the agent to keep some randomness in its decisions, preventing it from committing too early to a narrow set of actions."} to the training objective. Entropy is a measure of randomness. By rewarding a bit of randomness, PPO nudges the agent to keep exploring rather than always doing the same thing.
+
 
 ```quickcheck
 q: What does the entropy bonus in PPO encourage the agent to do?
