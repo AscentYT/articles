@@ -13,15 +13,20 @@ KNN is a :vocab[supervised machine learning algorithm]{definition="A type of alg
 
 Before KNN can do anything, the data needs to be turned into a format a computer can work with. That format is numbers, and those numbers can be plotted as points on a graph.
 
-Here is how it works. Say you want to teach a computer to tell the difference between cats and dogs based on two measurements: weight and height.
+Here is how it works. Say you want to teach a computer to tell the difference between cats and dogs based on two measurements: tail length and ear shape (scored on a scale from pointy to floppy).
 
-For each animal in your dataset, you have two numbers. Weight becomes the position on the horizontal axis (left to right), and height becomes the position on the vertical axis (up and down). That gives every animal a specific spot on the graph. A heavy, tall dog ends up in the top right. A light, short cat ends up in the bottom left. Each animal is now a single dot.
+For each animal in your dataset, you have two numbers. Tail length becomes the position on the horizontal axis (left to right), and ear shape becomes the position on the vertical axis (up and down). That gives every animal a specific spot on the graph. A dog with a long tail and floppy ears ends up in the top right. A cat with a short tail and pointy ears ends up in the bottom left. Each animal is now a single dot.
 
-These measurements are called :vocab[features]{definition="The numbers that describe a piece of data. Each feature is one measurement, like weight or height. Together, the features place a data point at a specific spot on the graph."}.
+These measurements are called :vocab[features]{definition="The numbers that describe a piece of data. Each feature is one measurement, like tail length or ear shape. Together, the features place a data point at a specific spot on the graph."}.
 
-> [diagram needed] A simple 2D graph. X-axis labeled "Weight", Y-axis labeled "Height". Several dots plotted, some labeled "cat" (small, clustered bottom-left), some labeled "dog" (larger, clustered top-right). Show one dot with a dotted line dropping down to the x-axis and across to the y-axis, with the values labeled, to show how its position is determined by its two measurements.
+```image
+src: feature-plot.png
+alt: A 2D scatter plot with Tail Length on the x-axis and Ear Shape on the y-axis. Cat dots cluster in the bottom-left, dog dots in the top-right. One dot has dotted lines showing how its x and y position map to its tail length and ear shape measurements.
+caption: Each animal becomes a dot. Its tail length sets how far right it goes, its ear shape sets how far up it goes.
+fit: contain
+```
 
-Once every animal is plotted, animals of the same type tend to cluster together. Cats group near other cats, dogs near other dogs. That clustering is what KNN takes advantage of.
+Once every animal is plotted, animals of the same type tend to cluster together. Cats, with their shorter tails and pointier ears, group near other cats. Dogs, with longer tails and floppier ears, group near other dogs. That clustering is what KNN takes advantage of.
 
 This collection of labeled examples is called the :vocab[training data]{definition="The set of examples the model learns from. Each example has both its measurements (features) and the correct label, like cat or dog."}.
 
@@ -38,11 +43,16 @@ explanation: Each feature becomes a coordinate on the graph. Together they deter
 
 ## How KNN Makes a Prediction
 
-When a new, unlabeled animal comes in, KNN plots it on the same graph using its measurements. Then it looks at the K closest labeled points around it. Those are its :vocab[nearest neighbors]{definition="The labeled examples closest in distance to the new point on the graph. KNN uses them to vote on what label the new point should get."}.
+When a new, unlabeled animal comes in, KNN measures its tail length and ear shape, then plots it on the same graph. Then it looks at the K closest labeled points around it. Those are its :vocab[nearest neighbors]{definition="The labeled examples closest in distance to the new point on the graph. KNN uses them to vote on what label the new point should get."}.
 
 Each neighbor gets one vote. Whichever label gets the most votes wins, and that becomes the prediction.
 
-> [diagram needed] The same graph as above, with a new unlabeled point marked with a question mark. A dashed circle drawn around its 5 nearest neighbors. Three are cats, two are dogs. An annotation shows the tally: cats 3, dogs 2. Arrow pointing to the new point labeled "predicted: cat".
+```image
+src: knn-vote.png
+alt: The same scatter plot with a new unlabeled point marked with a question mark. A dashed circle surrounds its 5 nearest neighbors: 3 cats and 2 dogs. A vote tally shows cats 3, dogs 2. The new point is labeled predicted: cat.
+caption: The new animal is surrounded by 3 cats and 2 dogs, so KNN predicts cat.
+fit: contain
+```
 
 ## Choosing K
 
@@ -52,7 +62,19 @@ If K is small, like 1, the prediction is based entirely on whichever single poin
 
 If K is large, many points vote, which smooths out those mistakes. But if K is too large, the model starts pulling in points that are not really that similar, and the predictions become too general.
 
-> [diagram needed] Three side-by-side plots showing decision boundaries for K = 1, K = 5, and K = 20. K = 1 should look jagged and irregular. K = 5 smoother. K = 20 very smooth but potentially misclassifying some edge points. Label each plot with its K value.
+```image
+src: k-small.png
+alt: Scatter plot showing K=1 for a KNN classifier. The decision boundary is extremely jagged and tightly wraps around individual data points, creating small islands around outliers.
+caption: With a very small K (like K=1), the model overfits and creates a highly jagged boundary that reacts too strongly to noise and individual points.
+fit: contain
+```
+
+```image
+src: k-big.png
+alt: Scatter plot showing K=50 for a KNN classifier. The decision boundary is overly smooth and almost linear, ignoring local clusters and misclassifying several edge points.
+caption: With a very large K, the model underfits and over-smooths the boundary, ignoring local structure and blending distinct groups together.
+fit: contain
+```
 
 ```quickcheck
 q: What is the risk of setting K = 1?
@@ -70,8 +92,6 @@ explanation: With K = 1, a single neighbor determines the prediction. If that ne
 To find the nearest neighbors, KNN needs to measure how far apart two points are on the graph. The most common way to do this is :vocab[Euclidean distance]{definition="The straight-line distance between two points on a graph, the same as what you would measure with a ruler."}, which is just the straight-line distance between them, the same as if you put a ruler on the graph.
 
 The closer two points are, the more similar the algorithm considers them to be.
-
-> [diagram needed] Two labeled points on a graph with a straight line connecting them. Label the line "distance". Show the horizontal and vertical gaps as a right triangle to illustrate how the distance is calculated from the two measurements.
 
 ## Implementing KNN in Python
 
@@ -125,10 +145,8 @@ for k in range(1, 21):
     accuracies[k] = accuracy_score(y_test, model.predict(X_test))
 
 best_k = max(accuracies, key=accuracies.get)
-print(f"Best K: {best_k} ({accuracies[best_k]:.2%} accuracy)")
+print(f"Best K: {best_k} ({accuracies[best_k]:.2%} accuracy)") # 0.9
 ```
-
-> [diagram needed] A line chart with K on the x-axis (1 to 20) and accuracy percentage on the y-axis. Highlight the highest point with a marker or annotation showing the best K value.
 
 ```quickcheck
 q: Why do we scale the features before training KNN?
