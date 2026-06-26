@@ -23,7 +23,7 @@ In the tiger example, the input is an image and the output might be "97% tiger, 
 src: tiger-prediction.png
 alt: A photo of a tiger with a prediction bar showing 97% Tiger and 3% Lion overlaid on the bottom.
 caption: The model assigns a confidence score to each category. It learned those associations from training data, not from hand-written rules.
-fit: contain
+fit: cover
 ```
 
 ## Two Types of Tasks: Classification and Regression
@@ -40,7 +40,7 @@ Take housing prices. If you give a model data about houses — square footage, n
 src: regression-graph.png
 alt: A scatter plot with square footage on the x-axis and price on the y-axis. A best-fit line runs through the data points.
 caption: Linear regression finds the line that best fits the data. That line becomes the model's rule for estimating new prices.
-fit: contain
+fit: cover
 ```
 
 ```quickcheck
@@ -87,7 +87,7 @@ A common unsupervised technique is :vocab[clustering]{definition="An unsupervise
 src: clustering.png
 alt: A scatter plot with unlabeled data points. Circles are drawn around three distinct clusters of points.
 caption: Clustering finds natural groupings in data. The algorithm discovers the groups on its own — no labels needed.
-fit: contain
+fit: cover
 ```
 
 ## Training Data vs. Testing Data
@@ -104,7 +104,7 @@ If the model performs well on both, it has genuinely learned. If it does great o
 src: train-test-split.png
 alt: A data table being divided into two labeled sections: Training Data on the left and Testing Data on the right.
 caption: The training set teaches the model. The test set checks whether it actually learned — or just memorized.
-fit: contain
+fit: cover
 ```
 
 ```quickcheck
