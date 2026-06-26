@@ -104,7 +104,7 @@ If the model performs well on both, it has genuinely learned. If it does great o
 src: train-test-split.png
 alt: A data table being divided into two labeled sections: Training Data on the left and Testing Data on the right.
 caption: The training set teaches the model. The test set checks whether it actually learned — or just memorized.
-fit: cover
+fit: contain
 ```
 
 ```quickcheck
